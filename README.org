@@ -13,6 +13,7 @@ described here!
    static main(String[]) // The entry point of our program.
   
   Race
+   registerRacer(Vehicle) // register Car/Truck/Motrcycle into the race. Typical aggregation class function to let external code inject objects
    simulateRace() // simulates the race by
                   // - calling moveForAnHour() on every vehicle 50 times
                   // - setting whether its raining

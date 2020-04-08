@@ -21,7 +21,9 @@ public class Main {
         Race race = new Race();
         createVehicles(race);
 
-        race.simulateRace();
-        race.printRaceResults();
+        //race.simulateRace();
+        //race.printRaceResults();
+
+
     }
 }

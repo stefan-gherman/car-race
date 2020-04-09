@@ -27,9 +27,16 @@ public class Truck extends Vehicle {
         Random random = new Random();
         probability = random.nextInt(100);
 
-        if (probability < 5) {
+        if (probability < 5 && !isBroken()) {
             setBroken(true);
+            breakdownTurnsLeft = 2;
+        } else if (isBroken()) {
+            breakdownTurnsLeft -= 1;
+            if (breakdownTurnsLeft <= 0) {
+                breakdownTurnsLeft = 0;
+            }
         }
+
         setSpeed(100);
     }
 

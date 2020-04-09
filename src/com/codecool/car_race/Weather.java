@@ -9,7 +9,7 @@ public abstract class Weather {
     static void setRaining() {
         Random rainChanceRandomize = new Random();
 
-        int rainChance = rainChanceRandomize.nextInt(9);
+        int rainChance = rainChanceRandomize.nextInt(10);
 
         if(rainChance <= 2) {
             raining = true;

@@ -1,12 +1,24 @@
 package com.codecool.car_race;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
     /**
      * Creates all the vehicles that will be part of this race.
      */
     private static void createVehicles(Race race) {
+        List<Car> carList = new ArrayList<Car>();
+        for (int i = 0; i<10; i++) {
+            carList.add(new Car());
+        }
+
+        for (Car car: carList) {
+            System.out.println(car.toString());
+
+        }
     }
 
     /**

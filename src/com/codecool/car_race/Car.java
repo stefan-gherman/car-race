@@ -20,13 +20,19 @@ public class Car extends Vehicle {
             index = randomIndex.nextInt((19-11)+1) + 11;
         }
         name2 = possibleNamesList[index];
-        this.name = name1 + " " + name2;
+       setName(name1 + " " + name2);
     }
+
 
 
     @Override
     public void prepareForLap(Race race) {
         Random randomSpeed = new Random();
-        this.speed = randomSpeed.nextInt((110-80)+1)-80;
+        setSpeed(randomSpeed.nextInt((110-80)+1)-80);
+    }
+
+    @Override
+    public void prepareForLap(Race race, int reducedSpeed) {
+       setSpeed(75);
     }
 }

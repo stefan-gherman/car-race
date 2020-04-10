@@ -34,6 +34,7 @@ public class Truck extends Vehicle {
             breakdownTurnsLeft -= 1;
             if (breakdownTurnsLeft <= 0) {
                 breakdownTurnsLeft = 0;
+                setBroken(false);
             }
         }
 
@@ -43,5 +44,9 @@ public class Truck extends Vehicle {
     @Override
     public void prepareForLap(Race race, int reducedSpeed) {
         setSpeed(reducedSpeed);
+    }
+
+    public String toString() {
+        return String.format("%s speed: %s distance: %s broken: %s type: %s", this.getName(), this.getSpeed(), this.getDistanceTraveled(), this.isBroken(), this.getClass().toString().substring(28));
     }
 }

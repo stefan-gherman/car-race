@@ -28,7 +28,7 @@ public class Car extends Vehicle {
     @Override
     public void prepareForLap(Race race) {
         Random randomSpeed = new Random();
-        setSpeed(randomSpeed.nextInt((110-80)+1)-80);
+        setSpeed(randomSpeed.nextInt((110-80)+1)+80);
     }
 
     @Override

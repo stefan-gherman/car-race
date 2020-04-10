@@ -5,8 +5,8 @@ public abstract  class Vehicle implements Auto {
     private int speed = 0;
     private String name;
 
-    private void moveForAnHour() {
-        distanceTraveled += 10;
+    public void moveForAnHour() {
+        this.distanceTraveled += 10;
     }
 
     public void setSpeed(int speed) {
@@ -14,7 +14,7 @@ public abstract  class Vehicle implements Auto {
     }
 
     public int getSpeed() {
-        return speed;
+        return this.speed;
     }
 
     public void setName(String name) {
@@ -22,10 +22,14 @@ public abstract  class Vehicle implements Auto {
     }
 
     public String getName() {
-        return name;
+        return this.name;
+    }
+
+    public int getDistanceTraveled() {
+        return this.distanceTraveled;
     }
 
     public String toString() {
-        return String.format("%s %s %s", this.name, this.speed, this.distanceTraveled);
+        return String.format("%s speed: %s distance: %s type: %s", this.name, this.speed, this.distanceTraveled, this.getClass().toString().substring(28));
     }
 }

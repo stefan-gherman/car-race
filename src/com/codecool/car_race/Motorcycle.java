@@ -16,6 +16,8 @@ public class Motorcycle extends Vehicle {
 
     @Override
     public void prepareForLap(Race race, int reducedSpeed) {
-        setSpeed(reducedSpeed);
+        Random random = new Random();
+        reducedSpeed = random.nextInt((50-5)+1) +5;
+        setSpeed(100-reducedSpeed);
     }
 }

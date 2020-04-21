@@ -1,12 +1,15 @@
 package com.codecool.car_race;
 
 public abstract  class Vehicle implements Auto {
-    private int distanceTraveled = 0;
+    private double distanceTraveled = 0;
     private int speed = 0;
     private String name;
+    private final int HOUR_IN_SECONDS = 3600;
 
-    public void moveForAnHour() {
-        this.distanceTraveled += 10;
+    public abstract void moveForAnHour();
+
+    public int getHOUR_IN_SECONDS() {
+        return HOUR_IN_SECONDS;
     }
 
     public void setSpeed(int speed) {
@@ -25,7 +28,7 @@ public abstract  class Vehicle implements Auto {
         return this.name;
     }
 
-    public int getDistanceTraveled() {
+    public double getDistanceTraveled() {
         return this.distanceTraveled;
     }
 

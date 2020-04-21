@@ -42,6 +42,11 @@ public class Truck extends Vehicle {
     }
 
     @Override
+    public void moveForAnHour() {
+
+    }
+
+    @Override
     public void prepareForLap(Race race, int reducedSpeed) {
         setSpeed(reducedSpeed);
     }

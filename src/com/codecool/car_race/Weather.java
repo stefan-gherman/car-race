@@ -2,24 +2,28 @@ package com.codecool.car_race;
 
 import java.util.Random;
 
-public abstract class Weather {
+public class Weather {
 
-    private static boolean raining = false;
+    private boolean raining;
 
-    static void setRaining() {
+    public Weather() {
+        this.raining = false;
+    }
+
+   public void setRaining() {
         Random rainChanceRandomize = new Random();
 
         int rainChance = rainChanceRandomize.nextInt(10);
 
         if(rainChance <= 2) {
-            raining = true;
+            this.raining = true;
         } else {
-            raining = false;
+            this.raining = false;
         }
 
     }
 
-    static boolean isRaining() {
-        return  raining;
+   public boolean isRaining() {
+        return  this.raining;
     }
 }

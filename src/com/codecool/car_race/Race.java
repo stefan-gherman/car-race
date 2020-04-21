@@ -2,120 +2,48 @@ package com.codecool.car_race;
 
 import javax.sound.midi.Soundbank;
 import javax.swing.table.TableRowSorter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Race {
 
     String[] names = new String[]{"Le Mans", "Talladega", "Monza", "Spa Francorchamps", "Daytona 500"};
     String name;
+    Weather raceWeather;
 
-    private List<Vehicle> carList = new ArrayList<>();
-    private List<Vehicle> motoList = new ArrayList<>();
-    private List<Vehicle> truckList = new ArrayList<>();
+    private List<Vehicle> competitors = new ArrayList<Vehicle>();
 
 
     public Race() {
         Random random = new Random();
         this.name = names[random.nextInt(names.length)];
+        raceWeather = new Weather();
     }
 
     public void registerRacer(Vehicle vehicle) {
 
-        String vehicleSubClassName = vehicle.getClass().toString().substring(28);
-
-        switch (vehicleSubClassName) {
-            case "Car":
-                carList.add(vehicle);
-                break;
-            case "Motorcycle":
-                motoList.add(vehicle);
-                break;
-            case "Truck":
-                truckList.add(vehicle);
-                break;
-            default:
-                break;
-        }
+        competitors.add(vehicle);
     }
 
     public void simulateRace() {
+        Map<Float, Vehicle> standings = new TreeMap<Float, Vehicle>();
         for (int lap = 0; lap < 50; lap++) {
-            Weather.setRaining();
-            System.out.println(String.format("Lap: %s", lap+1));
-            System.out.println(String.format("Raining?:%s", Weather.isRaining()));
+
+            this.raceWeather.setRaining();
+            System.out.println(this.name);
+            System.out.println(String.format("Lap: %s", lap + 1));
+            System.out.println(String.format("Raining?:%s", this.raceWeather.isRaining()));
             System.out.println("\n");
 
-            for (Vehicle moto : motoList
-            ) {
-                moto = (Motorcycle) moto;
-                if (Weather.isRaining()) {
-                    moto.prepareForLap(this, 0);
-                } else {
-                    moto.prepareForLap(this);
-                }
-                moto.moveForAnHour();
-            }
 
-            for (Vehicle truck : truckList
-            ) {
-                truck = (Truck) truck;
-                truck.prepareForLap(this);
-                truck.moveForAnHour();
-            }
-
-            for (Vehicle car : carList
-            ) {
-                car = (Car) car;
-                if (isThereABrokenTruck()) {
-                    car.prepareForLap(this, 75);
-                } else {
-                    car.prepareForLap(this);
-                }
-                car.moveForAnHour();
-            }
-            printRaceResults();
         }
     }
 
     public void printRaceResults() {
-        System.out.println("---CARS---");
-        for (Vehicle car : carList
-        ) {
-            car = (Car) car;
-            System.out.println(car.toString());
-        }
-        System.out.println("---------");
-        System.out.println("---MOTORCYCLES---");
-        for (Vehicle motos : motoList
-        ) {
-            motos = (Motorcycle) motos;
-            System.out.println(motos.toString());
-        }
-        System.out.println("---------");
-        System.out.println("---TRUCKS---");
-        for (Vehicle truck : truckList
-        ) {
-            truck = (Truck) truck;
-            System.out.println(truck.toString());
-        }
-        System.out.println("---------");
+
     }
 
     public boolean isThereABrokenTruck() {
-
-
-        Truck currentTruck = new Truck();
-        for (Vehicle truck : truckList
-        ) {
-
-            currentTruck = (Truck) truck;
-            if (currentTruck.isBroken()) {
-                return true;
-            }
-        }
-        return false;
+        return true;
     }
 
 }

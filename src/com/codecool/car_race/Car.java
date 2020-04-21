@@ -23,7 +23,10 @@ public class Car extends Vehicle {
        setName(name1 + " " + name2);
     }
 
+    @Override
+    public void moveForAnHour() {
 
+    }
 
     @Override
     public void prepareForLap(Race race) {

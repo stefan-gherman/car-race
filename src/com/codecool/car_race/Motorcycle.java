@@ -10,6 +10,11 @@ public class Motorcycle extends Vehicle {
     }
 
     @Override
+    public void moveForAnHour() {
+
+    }
+
+    @Override
     public void prepareForLap(Race race) {
         setSpeed(100);
     }

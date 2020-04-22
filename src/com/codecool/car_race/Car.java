@@ -25,17 +25,32 @@ public class Car extends Vehicle {
 
     @Override
     public void moveForAnHour() {
-
+        this.setDistanceTraveled(this.getDistanceTraveled() + this.getSpeed());
     }
 
     @Override
-    public void prepareForLap(Race race) {
+    public void prepareForLap() {
         Random randomSpeed = new Random();
         setSpeed(randomSpeed.nextInt((110-80)+1)+80);
     }
 
     @Override
-    public void prepareForLap(Race race, int reducedSpeed) {
-       setSpeed(75);
+    public void prepareForLap(int reducedSpeed) {
+
     }
+
+    @Override
+    public void prepareForLapRain() {
+        this.prepareForLap();
+    }
+
+    @Override
+    public void prepareForLapTruckDown() {
+        Random randomSpeed = new Random();
+        setSpeed(randomSpeed.nextInt((75-25)+1)+25);
+    }
+
+
+
+
 }

@@ -1,6 +1,8 @@
 package com.codecool.car_race;
 
 public interface Auto {
-     void prepareForLap(Race race);
-     void prepareForLap(Race race, int reducedSpeed);
+     void prepareForLap();
+     void prepareForLap(int reducedSpeed);
+     void prepareForLapRain();
+     void prepareForLapTruckDown();
 }

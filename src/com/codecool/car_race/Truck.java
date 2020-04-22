@@ -7,6 +7,8 @@ public class Truck extends Vehicle {
     private int breakdownTurnsLeft=0;
     private int probability;
     private boolean isBroken = false;
+    private final int MAX_TRUCK_SPEED = 100;
+    private final int MIN_TRUCK_SPEED = 0;
 
     public void setBroken(boolean broken) {
         isBroken = broken;
@@ -23,32 +25,47 @@ public class Truck extends Vehicle {
         setBroken(false);
     }
     @Override
-    public void prepareForLap(Race race) {
+    public void prepareForLap() {
         Random random = new Random();
         probability = random.nextInt(100);
 
         if (probability < 5 && !isBroken()) {
             setBroken(true);
             breakdownTurnsLeft = 2;
+            setSpeed(MIN_TRUCK_SPEED);
         } else if (isBroken()) {
             breakdownTurnsLeft -= 1;
             if (breakdownTurnsLeft <= 0) {
                 breakdownTurnsLeft = 0;
                 setBroken(false);
+                setSpeed(MAX_TRUCK_SPEED);
             }
         }
 
-        setSpeed(100);
+
+    }
+
+
+
+    @Override
+    public void prepareForLap(int reducedSpeed) {
+        setSpeed(reducedSpeed);
     }
 
     @Override
     public void moveForAnHour() {
-
+        this.setDistanceTraveled(this.getDistanceTraveled() + this.getSpeed());
     }
 
     @Override
-    public void prepareForLap(Race race, int reducedSpeed) {
-        setSpeed(reducedSpeed);
+    public void prepareForLapTruckDown() {
+        prepareForLap();
+    }
+
+    @Override
+    public void prepareForLapRain() {
+        prepareForLap();
+
     }
 
     public String toString() {

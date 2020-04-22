@@ -28,8 +28,27 @@ public abstract  class Vehicle implements Auto {
         return this.name;
     }
 
+    public void setDistanceTraveled(double distanceTraveled) {
+        this.distanceTraveled = distanceTraveled;
+    }
+
     public double getDistanceTraveled() {
         return this.distanceTraveled;
+    }
+
+    @Override
+    public void prepareForLapRain() {
+
+    }
+
+    @Override
+    public void prepareForLapTruckDown() {
+
+    }
+
+    @Override
+    public void prepareForLap() {
+
     }
 
     public String toString() {

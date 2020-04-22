@@ -1,5 +1,6 @@
 package com.codecool.car_race;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Car extends Vehicle {
@@ -50,7 +51,8 @@ public class Car extends Vehicle {
         setSpeed(randomSpeed.nextInt((75-25)+1)+25);
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return String.format("%s speed: %s distance: %s type: Car", this.getName(), this.getSpeed(), this.getDistanceTraveled());
+    }
 }

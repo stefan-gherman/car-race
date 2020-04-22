@@ -18,7 +18,7 @@ public class Motorcycle extends Vehicle {
 
     @Override
     public void prepareForLap() {
-        setSpeed(100);
+        setSpeed(MOTORCYCLE_MAX_SPEED_UNDER_NORMAL_CONDITIONS);
     }
 
     @Override
@@ -30,11 +30,16 @@ public class Motorcycle extends Vehicle {
     public void prepareForLapRain() {
         Random random = new Random();
         int reducedSpeed = random.nextInt((50-5)+1) +5;
-        setSpeed(100-reducedSpeed);
+        setSpeed(MOTORCYCLE_MAX_SPEED_UNDER_NORMAL_CONDITIONS-reducedSpeed);
     }
 
     @Override
     public void prepareForLapTruckDown() {
 
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s speed: %s distance: %s type: Motorcycle", this.getName(), this.getSpeed(), this.getDistanceTraveled());
     }
 }

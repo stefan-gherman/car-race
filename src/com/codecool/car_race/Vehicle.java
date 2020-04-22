@@ -52,6 +52,6 @@ public abstract  class Vehicle implements Auto {
     }
 
     public String toString() {
-        return String.format("%s speed: %s distance: %s type: %s", this.name, this.speed, this.distanceTraveled, this.getClass().toString().substring(28));
+        return String.format("%s speed: %s distance: %s type: %s", this.name, this.speed, this.distanceTraveled, this.getClass().toString());
     }
 }

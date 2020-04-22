@@ -69,6 +69,6 @@ public class Truck extends Vehicle {
     }
 
     public String toString() {
-        return String.format("%s speed: %s distance: %s broken: %s type: %s", this.getName(), this.getSpeed(), this.getDistanceTraveled(), this.isBroken(), this.getClass().toString().substring(28));
+        return String.format("%s speed: %s distance: %s broken: %s type:Truck", this.getName(), this.getSpeed(), this.getDistanceTraveled(), this.isBroken());
     }
 }

@@ -60,17 +60,12 @@ public class Race {
 
     public void printRaceResults(Map<Vehicle, Double> standings) {
 
-        List<Map.Entry<Vehicle,Double>> competitorsByDistance = new ArrayList<Map.Entry<Vehicle,Double>>(standings.entrySet());
-        Collections.sort(competitorsByDistance, new Comparator<Map.Entry<Vehicle, Double>>() {
-            @Override
-            public int compare(Map.Entry<Vehicle, Double> vehicleDoubleEntry, Map.Entry<Vehicle, Double> t1) {
-               return t1.getValue().compareTo(vehicleDoubleEntry.getValue());
-            }
-        });
+        List<Map.Entry<Vehicle,Double>> competitorsByDistance = new ArrayList<>(standings.entrySet());
+        Collections.sort(competitorsByDistance, (vehicleDoubleEntry, t1) -> t1.getValue().compareTo(vehicleDoubleEntry.getValue()));
 
         for ( Map.Entry<Vehicle, Double> vehicle: competitorsByDistance
              ) {
-            System.out.println(vehicle.toString());
+            System.out.println(vehicle.toString().substring(0, vehicle.toString().indexOf("=")));
         }
 
     }

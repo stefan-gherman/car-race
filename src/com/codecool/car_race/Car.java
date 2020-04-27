@@ -8,6 +8,14 @@ public class Car extends Vehicle {
     String[] possibleNamesList = new String[] {"Gallop", "Albatross", "Alabaster", "Viper", "Excursion", "Scorpion", "Encounter", "Blend", "Umbra", "Motive",
             "Bison", "Renaissance", "Vision", "Empyrée", "Magie", "Orbite", "Souhait", "Halo", "Formule", "Chasseur"
     };
+
+    private final int MAX_SPEED_NO_TRUCK = 110;
+    private final int MIN_SPEED_NO_TRUCK = 80;
+
+    private final int MAX_SPEED_TRUCK = 75;
+    private final int MIN_SPEED_TRUCK = 25;
+
+
     public Car() {
         String name1, name2;
         int index;
@@ -32,7 +40,7 @@ public class Car extends Vehicle {
     @Override
     public void prepareForLap() {
         Random randomSpeed = new Random();
-        setSpeed(randomSpeed.nextInt((110-80)+1)+80);
+        setSpeed(randomSpeed.nextInt((MAX_SPEED_NO_TRUCK-MIN_SPEED_NO_TRUCK)+1)+MIN_SPEED_NO_TRUCK);
     }
 
     @Override
@@ -48,7 +56,7 @@ public class Car extends Vehicle {
     @Override
     public void prepareForLapTruckDown() {
         Random randomSpeed = new Random();
-        setSpeed(randomSpeed.nextInt((75-25)+1)+25);
+        setSpeed(randomSpeed.nextInt((MAX_SPEED_TRUCK-MIN_SPEED_TRUCK)+1)+MIN_SPEED_TRUCK);
     }
 
     @Override
